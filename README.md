@@ -148,7 +148,25 @@ Potential directions:
 https://discord.gg/knmuFxfehD
 
 ## PEP Talks
-https://www.youtube.com/playlist?list=PLe817kHhDpUuVt0hvGrzmPZuQHDIEJgCh
+
+### YouTube Playlist
+**PEP Talk Series:** https://www.youtube.com/playlist?list=PLe817kHhDpUuVt0hvGrzmPZuQHDIEJgCh
+
+### Presentations
+
+**PEP Talk Overview Deck**  
+Introduction to the PEP Talk series and concept:  
+https://docs.google.com/presentation/d/1ReUq8zwjFY9XGYvoGui4mDUym4zjDDr1kSMOMMTB03U/edit?usp=sharing
+
+**PEP Talk Podcast Deck**  
+Presentation materials for the PEP Talk podcast format:  
+https://docs.google.com/presentation/d/13OREG6owep9wmHEGpirr1Uel2mpsHbH6G_jje3WhCN0/edit?usp=sharing
+
+### Resources
+
+**PEP PDF**  
+Downloadable PDF document related to PEP Talks:  
+https://drive.google.com/file/d/1LuNRDrBLrNzcvCkttPSVV56pxK-YlEKy/view?usp=sharing
 
 ## Additional Reading
 https://www.democracythinking.com/ammi

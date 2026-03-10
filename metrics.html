@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metrics Definition | PEP Strategy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-bg"></div>
+    <div class="grain"></div>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="index.html">PEP Strategy</a>
+        <button class="menu-btn" data-menu-btn type="button">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a href="index.html">Overview</a>
+          <a href="process.html">Process</a>
+          <a href="roles.html">Roles</a>
+          <a href="prioritization.html">Prioritization</a>
+          <a href="pep-talk.html">PEP Talk</a>
+          <a class="active" href="metrics.html">Metrics</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Part 4: Metrics Definition</h1>
+        <p>
+          After PEP Talk prioritization, Community Organizers and Data Scientists
+          define one or more metrics for each prioritized epic problem, independent
+          of proposed solutions.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Metrics Principles</h2>
+          <ul>
+            <li>Problem metrics are defined before solution proposal requests.</li>
+            <li>Each metric includes measurable success and failure ranges.</li>
+            <li>Baseline data should be collected where applicable.</li>
+            <li>
+              Optional: define metrics for each proposed epic problem at submission
+              time.
+            </li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Solution Accountability</h2>
+          <p>
+            If a proposed solution fails to move at least one defined metric within
+            the designated time period, it can no longer be counted as a solution,
+            impacting any formal support for that proposal.
+          </p>
+        </article>
+        <article class="card full">
+          <h2>Implementation Checklist</h2>
+          <div class="checklist">
+            <label class="check">
+              <input data-step-check id="step-1" type="checkbox" />
+              <span>Prioritized problem list is finalized and logged.</span>
+            </label>
+            <label class="check">
+              <input data-step-check id="step-2" type="checkbox" />
+              <span>At least one metric assigned to each prioritized problem.</span>
+            </label>
+            <label class="check">
+              <input data-step-check id="step-3" type="checkbox" />
+              <span>Success and failure value ranges defined per metric.</span>
+            </label>
+            <label class="check">
+              <input data-step-check id="step-4" type="checkbox" />
+              <span>Baseline data captured and archived.</span>
+            </label>
+            <label class="check">
+              <input data-step-check id="step-5" type="checkbox" />
+              <span>Solution proposal template includes metric hypothesis.</span>
+            </label>
+            <label class="check">
+              <input data-step-check id="step-6" type="checkbox" />
+              <span>Failure-to-move policy and time horizon published.</span>
+            </label>
+          </div>
+          <div class="status" data-step-status>
+            0 of 6 workflow checkpoints marked complete.
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        Scientific-method framing: hypotheses are tied to measurable metric movement.
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

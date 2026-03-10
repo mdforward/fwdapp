@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prioritization | PEP Strategy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-bg"></div>
+    <div class="grain"></div>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="index.html">PEP Strategy</a>
+        <button class="menu-btn" data-menu-btn type="button">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a href="index.html">Overview</a>
+          <a href="process.html">Process</a>
+          <a href="roles.html">Roles</a>
+          <a class="active" href="prioritization.html">Prioritization</a>
+          <a href="pep-talk.html">PEP Talk</a>
+          <a href="metrics.html">Metrics</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Part 3: List of Prioritized Epic Problems</h1>
+        <p>
+          Based on debates and Condorcet-style ordering logic, with strict rules for
+          floor control, proposal clarity, and bounded discussion time.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Proposal Types (per turn)</h2>
+          <ul>
+            <li><strong>New:</strong> add a problem and propose its order.</li>
+            <li><strong>Move:</strong> reposition an existing problem.</li>
+            <li><strong>Remove:</strong> propose removal of irrelevant problem.</li>
+            <li><strong>Pass</strong> turn.</li>
+            <li><strong>Yield</strong> turn to another participant.</li>
+            <li><strong>Defer</strong> and re-enter later in the round.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Deferred Turns</h2>
+          <ul>
+            <li>
+              Deferred participants can issue a Motion to Undefer before each new
+              floor transition.
+            </li>
+            <li>No second or vote required for Motion to Undefer.</li>
+            <li>
+              If multiple undefer motions exist, apply in randomized round order.
+            </li>
+          </ul>
+        </article>
+        <article class="card full">
+          <h2>Debate Sequence</h2>
+          <ol class="timeline">
+            <li>Proposal logged; relevant TED Talk may be played and logged.</li>
+            <li>
+              Clarifying/confirming questions only. If unanswered, Motion to Table
+              may be raised, seconded, and passed by majority.
+            </li>
+            <li>
+              Check for objections. If none, accept and move on. If any objection
+              exists, debate continues.
+            </li>
+            <li>
+              Debate windows: 1-minute interventions, 10-minute total cap per
+              proposal, excluding TED Talk playback and question-answer pauses.
+            </li>
+            <li>
+              Debate forms: question, suggestion, debate for/against, test, hack.
+            </li>
+            <li>
+              Motion to Extend Debate may add 5 minutes by immediate plurality vote.
+            </li>
+            <li>
+              Motion to Vote requires a second. Content vote and position vote are
+              independent.
+            </li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="accordion">
+        <h2>Voting and Repeat-Proposal Rules</h2>
+        <div class="acc-item open">
+          <button class="acc-head" data-acc type="button">Two-Part Voting Logic</button>
+          <div class="acc-body">
+            <ul>
+              <li>
+                Vote #1: accept or reject content change (add/remove/modify problem).
+              </li>
+              <li>Vote #2: accept or reject proposed list position.</li>
+              <li>
+                If content passes but position fails on addition, problem is added at
+                end by default.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" data-acc type="button">When Can a Proposal Return?</button>
+          <div class="acc-body">
+            <ul>
+              <li>
+                If voted, same item/same position cannot return in future rounds
+                without amendment.
+              </li>
+              <li>
+                If no vote occurred by round end, same proposal can be reintroduced in
+                a future turn for continued discussion.
+              </li>
+              <li>All motions and votes must be recorded in the log book.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        Irrelevant-topic disruption may trigger a Motion for Vote of Censure.
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
