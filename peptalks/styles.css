@@ -1,14 +1,14 @@
 :root {
-  --bg: #f8f6f1;
-  --bg-deep: #e9e3d4;
-  --surface: #fffdf8;
-  --surface-alt: #f2ede2;
-  --text: #22201b;
-  --muted: #5b5548;
-  --line: #d2c8b4;
-  --accent: #005a7a;
-  --accent-soft: #d7edf5;
-  --accent-2: #9c3f1b;
+  --bg: #f4f0ff;
+  --bg-deep: #e4daf9;
+  --surface: #fcf9ff;
+  --surface-alt: #f1eafe;
+  --text: #231d33;
+  --muted: #5f5378;
+  --line: #cfc1eb;
+  --accent: #6a3cb5;
+  --accent-soft: #e7dcff;
+  --accent-2: #8f2f98;
   --radius: 14px;
   --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
@@ -34,7 +34,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: linear-gradient(rgba(248, 246, 241, 0.72), rgba(248, 246, 241, 0.76)), url("images/background.avif");
+  background-image: linear-gradient(rgba(244, 240, 255, 0.42), rgba(244, 240, 255, 0.48)), url("../images/background.avif");
   background-size: cover;
   background-position: center;
 }
@@ -57,7 +57,7 @@ body {
   position: sticky;
   top: 0;
   backdrop-filter: blur(6px);
-  background: rgba(255, 253, 248, 0.88);
+  background: rgba(252, 249, 255, 0.9);
   border-bottom: 1px solid var(--line);
   z-index: 30;
 }
@@ -148,7 +148,7 @@ h3 {
 
 p,
 li {
-  color: #2f2c24;
+  color: #2f2840;
 }
 
 .muted {
@@ -164,8 +164,8 @@ li {
 
 .chip {
   background: var(--accent-soft);
-  color: #113f50;
-  border: 1px solid #badbe8;
+  color: #3d2669;
+  border: 1px solid #cbb3f0;
   border-radius: 999px;
   padding: 0.2rem 0.7rem;
   font-size: 0.86rem;
