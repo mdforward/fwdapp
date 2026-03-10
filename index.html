@@ -4,212 +4,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MD Forward Party</title>
+    <link rel="stylesheet" href="peptalks/styles.css" />
     <style>
-      :root {
-        --bg: #f5f7f4;
-        --panel: #ffffff;
-        --text: #1e2b22;
-        --muted: #4d5a51;
-        --line: #d4ddd5;
-        --accent: #136f63;
-        --accent-2: #0d4d72;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
-        color: var(--text);
-        background:
-          linear-gradient(rgba(245, 247, 244, 0.78), rgba(245, 247, 244, 0.82)),
-          url("images/background.avif") center / cover fixed no-repeat;
-      }
-
-      .wrap {
-        width: min(1100px, calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      header {
-        padding: 2.2rem 0 1.2rem;
-      }
-
-      h1,
-      h2 {
-        font-family: "Palatino Linotype", Palatino, serif;
-        margin: 0 0 0.6rem;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 4vw, 3rem);
-      }
-
-      .subtitle {
-        max-width: 75ch;
-        color: var(--muted);
-        margin: 0;
-      }
-
-      .section {
-        margin: 1.2rem 0;
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 1rem;
-      }
-
-      .pep-hero {
-        padding: 1.4rem;
-      }
-
-      .pep-hero h2 {
-        font-size: clamp(2rem, 5vw, 3.1rem);
-        margin-bottom: 0.9rem;
-      }
-
-      .pep-hero .links a.btn {
-        font-size: 1rem;
-        padding: 0.45rem 0.85rem;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 0.9rem;
-      }
-
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 0.9rem;
-      }
-
-      .card p {
-        color: #324037;
-        margin: 0.55rem 0;
-      }
-
-      .links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 0.55rem;
-      }
-
-      a.btn {
-        text-decoration: none;
-        border: 1px solid var(--accent);
-        color: var(--accent);
-        border-radius: 999px;
-        padding: 0.33rem 0.7rem;
-        font-size: 0.92rem;
-        font-weight: 600;
-      }
-
-      a.btn.alt {
-        border-color: var(--accent-2);
-        color: var(--accent-2);
-      }
-
-      footer {
-        color: var(--muted);
-        font-size: 0.93rem;
-        padding: 1rem 0 2rem;
+      .spotlight {
+        border-color: var(--accent);
+        background: linear-gradient(150deg, var(--accent-soft), var(--surface));
       }
     </style>
   </head>
   <body>
-    <header class="wrap">
-      <h1>MD Forward Party</h1>
-      <p class="subtitle">
-        Master project site linking to current civic technology ideas and PEP Talk
-        resources.
-      </p>
+    <div class="site-bg"></div>
+    <div class="grain"></div>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="index.html">MD Forward Party</a>
+        <button class="menu-btn" data-menu-btn type="button">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a class="active" href="index.html">Overview</a>
+          <a href="peptalks/index.html">PEP Strategy</a>
+          <a href="peptalks/process.html">Process</a>
+          <a href="peptalks/roles.html">Roles</a>
+          <a href="peptalks/pep-talk.html">PEP Talk</a>
+        </nav>
+      </div>
     </header>
 
     <main class="wrap">
-      <section class="section pep-hero">
-        <h2>PEP Talks and Community</h2>
-        <div class="links">
-          <a class="btn" href="peptalks/index.html">Local PEP Talks Site</a>
+      <section class="hero">
+        <h1>PEP Talks and Community</h1>
+        <p class="muted">
+          Master project site linking to current civic technology ideas and PEP
+          Talk resources for Maryland Forward Party.
+        </p>
+        <div class="chips">
+          <span class="chip">Prioritizing Epic Problems</span>
+          <span class="chip">Community Organizing</span>
+          <span class="chip">Civic Technology</span>
+          <span class="chip">Measurable Outcomes</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn fill" href="peptalks/index.html">Local PEP Talks Site</a>
           <a class="btn" href="https://www.youtube.com/playlist?list=PLe817kHhDpUuVt0hvGrzmPZuQHDIEJgCh" target="_blank" rel="noopener noreferrer">YouTube Playlist</a>
           <a class="btn" href="https://docs.google.com/presentation/d/1ReUq8zwjFY9XGYvoGui4mDUym4zjDDr1kSMOMMTB03U/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Overview Deck</a>
           <a class="btn" href="https://docs.google.com/presentation/d/13OREG6owep9wmHEGpirr1Uel2mpsHbH6G_jje3WhCN0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Podcast Deck</a>
-          <a class="btn alt" href="https://drive.google.com/file/d/1LuNRDrBLrNzcvCkttPSVV56pxK-YlEKy/view?usp=sharing" target="_blank" rel="noopener noreferrer">PEP PDF</a>
-          <a class="btn alt" href="https://discord.gg/knmuFxfehD" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a class="btn" href="https://drive.google.com/file/d/1LuNRDrBLrNzcvCkttPSVV56pxK-YlEKy/view?usp=sharing" target="_blank" rel="noopener noreferrer">PEP PDF</a>
+          <a class="btn" href="https://discord.gg/knmuFxfehD" target="_blank" rel="noopener noreferrer">Discord</a>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Project Ideas</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>1. Prioritized Problems Mobile App</h3>
-            <p>Mobile-first ranking of top community problems.</p>
-            <div class="links">
-              <a class="btn" href="https://miro.com/app/board/uXjVNVqvYdk=/?share_link_id=442935498077" target="_blank" rel="noopener noreferrer">UI Prototype</a>
-            </div>
-          </article>
+      <section class="grid">
+        <article class="card full">
+          <h2>Project Ideas</h2>
+          <p>
+            Active civic technology concepts and implementation references.
+          </p>
+          <div class="cta-row">
+            <a class="btn fill" href="https://codecollective.us/calendar.html?city=baltimore" target="_blank" rel="noopener noreferrer">Maryland Techonomics Event Calendar</a>
+            <a class="btn" href="https://codecollective.us/mdbills.html" target="_blank" rel="noopener noreferrer">Maryland Legislation Analyzer</a>
+          </div>
+        </article>
 
-          <article class="card">
-            <h3>2. Monthly Dues Ballot System</h3>
-            <p>Transparent and auditable voting for voluntary dues levels.</p>
-            <div class="links">
-              <a class="btn" href="https://www.notion.so/Monthly-Dues-Ballot-31e67ecedf8980219023f71f05787a98?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
-            </div>
-          </article>
+        <article class="card">
+          <h3>1. Prioritized Problems Mobile App</h3>
+          <p>Mobile-first ranking of top community problems.</p>
+          <a class="btn" href="https://miro.com/app/board/uXjVNVqvYdk=/?share_link_id=442935498077" target="_blank" rel="noopener noreferrer">UI Prototype</a>
+        </article>
 
-          <article class="card">
-            <h3>3. Petition Signature Prefill App</h3>
-            <p>Prefill petition forms to reduce errors and speed collection.</p>
-            <div class="links">
-              <a class="btn" href="https://www.notion.so/Mobile-App-to-Prefill-Signature-Petitions-see-Andy-Ellis-31e67ecedf89806b87c8c4e5cc461194?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
-            </div>
-          </article>
+        <article class="card">
+          <h3>2. Monthly Dues Ballot System</h3>
+          <p>Transparent and auditable voting for voluntary dues levels.</p>
+          <a class="btn" href="https://www.notion.so/Monthly-Dues-Ballot-31e67ecedf8980219023f71f05787a98?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
+        </article>
 
-          <article class="card">
-            <h3>4. Spreadsheet Protection Tool</h3>
-            <p>Automation for preserving protected voting ranges.</p>
-            <div class="links">
-              <a class="btn" href="https://www.notion.so/Write-Code-to-Copy-Protecting-Ranges-for-Voting-Spreadsheet-31e67ecedf8980879392f9505875d39f?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
-            </div>
-          </article>
+        <article class="card">
+          <h3>3. Petition Signature Prefill App</h3>
+          <p>Prefill petition forms to reduce errors and speed collection.</p>
+          <a class="btn" href="https://www.notion.so/Mobile-App-to-Prefill-Signature-Petitions-see-Andy-Ellis-31e67ecedf89806b87c8c4e5cc461194?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
+        </article>
 
-          <article class="card">
-            <h3>5. Platform Topic Graph Database</h3>
-            <p>Graph model for policy topic relationships and clustering.</p>
-            <div class="links">
-              <a class="btn" href="https://www.notion.so/Platform-Topic-Graph-Database-31e67ecedf89805183cde8dfc34a5b9d?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
-            </div>
-          </article>
+        <article class="card">
+          <h3>4. Spreadsheet Protection Tool</h3>
+          <p>Automation for preserving protected voting ranges.</p>
+          <a class="btn" href="https://www.notion.so/Write-Code-to-Copy-Protecting-Ranges-for-Voting-Spreadsheet-31e67ecedf8980879392f9505875d39f?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
+        </article>
 
-          <article class="card">
-            <h3>6. Maryland Bills Transparency Tool</h3>
-            <p>Public-facing bill explorer and legislative context tools.</p>
-            <div class="links">
-              <a class="btn" href="https://codecollective.us/mdbills.html" target="_blank" rel="noopener noreferrer">Example Prototype</a>
-              <a class="btn alt" href="https://mgaleg.maryland.gov/2026rs/misc/billsmasterlist/legislation.json" target="_blank" rel="noopener noreferrer">Legislative Data</a>
-            </div>
-          </article>
+        <article class="card">
+          <h3>5. Platform Topic Graph Database</h3>
+          <p>Graph model for policy topic relationships and clustering.</p>
+          <a class="btn" href="https://www.notion.so/Platform-Topic-Graph-Database-31e67ecedf89805183cde8dfc34a5b9d?pvs=21" target="_blank" rel="noopener noreferrer">Reference</a>
+        </article>
 
-          <article class="card">
-            <h3>7. Civic Data Visualization Experiments</h3>
-            <p>Interactive legal and legislative explanation visuals.</p>
-            <div class="links">
-              <a class="btn" href="https://www.qfathom.com/assets/html/TrumpIndictmentsDev2.html" target="_blank" rel="noopener noreferrer">Example</a>
-            </div>
-          </article>
-        </div>
+        <article class="card">
+          <h3>6. Maryland Bills Transparency Tool</h3>
+          <p>Public-facing bill explorer and legislative context tools.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://codecollective.us/mdbills.html" target="_blank" rel="noopener noreferrer">Example Prototype</a>
+            <a class="btn" href="https://mgaleg.maryland.gov/2026rs/misc/billsmasterlist/legislation.json" target="_blank" rel="noopener noreferrer">Legislative Data</a>
+          </div>
+        </article>
+
+        <article class="card spotlight">
+          <h3>7. Civic Data Visualization Experiments</h3>
+          <p>Interactive legal and legislative explanation visuals.</p>
+          <a class="btn" href="https://www.qfathom.com/assets/html/TrumpIndictmentsDev2.html" target="_blank" rel="noopener noreferrer">Example</a>
+        </article>
       </section>
-
     </main>
 
-    <footer class="wrap">
-      Contact: maryland@marylandforwardparty.com
+    <footer>
+      <div class="wrap">Contact: maryland@marylandforwardparty.com</div>
     </footer>
+    <script src="peptalks/script.js"></script>
   </body>
 </html>
