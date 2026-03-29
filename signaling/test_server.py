@@ -76,8 +76,6 @@ def test_is_chair():
     assert _is_chair(room, "u1") is True
     assert _is_chair(room, "u2") is False
 
-import pytest_asyncio
-
 @pytest.mark.asyncio
 async def test_advance_speaker_no_queue():
     import server as srv

@@ -56,6 +56,7 @@ rooms:         Dict[str, Room]                   = {}
 connections:   Dict[str, Dict[str, WebSocket]]   = {}
 _timer_tasks:  Dict[str, asyncio.Task]           = {}
 _motion_tasks: Dict[str, asyncio.Task]           = {}
+_vote_tasks:   Dict[str, asyncio.Task]           = {}
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI()
@@ -237,6 +238,7 @@ async def _handle_leave(room_id: str, member_id: str) -> None:
     if not room.members:
         _cancel_task(_timer_tasks,  room_id)
         _cancel_task(_motion_tasks, room_id)
+        _cancel_task(_vote_tasks,   room_id)
         rooms.pop(room_id, None)
         connections.pop(room_id, None)
         return
@@ -258,7 +260,7 @@ async def _handle_leave(room_id: str, member_id: str) -> None:
 
     if room.phase == "voting" and was_chair:
         await _broadcast_state(room_id)
-        asyncio.create_task(_close_vote(room_id))
+        _vote_tasks[room_id] = asyncio.create_task(_close_vote(room_id))
         return
 
     await _broadcast_state(room_id)
@@ -376,7 +378,8 @@ async def _handle_message(room_id: str, member_id: str,
         room.motion.member_votes[member_id] = vote
         room.motion.votes[vote] += 1
         if len(room.motion.member_votes) >= len(room.members):
-            asyncio.create_task(_close_vote(room_id))
+            if room_id not in _vote_tasks or _vote_tasks[room_id].done():
+                _vote_tasks[room_id] = asyncio.create_task(_close_vote(room_id))
         else:
             await _broadcast_state(room_id)
         return
@@ -384,10 +387,8 @@ async def _handle_message(room_id: str, member_id: str,
     if mtype == "set_speaker_time":
         if not _is_chair(room, member_id):
             return await _send_error(ws, "only the chair can set speaker time")
-        if room.phase not in ("open", "floor_held"):
-            return await _send_error(ws, "can only set speaker time when no business is pending")
-        if room.current_speaker is not None:
-            return await _send_error(ws, "cannot change speaker time while someone has the floor")
+        if room.phase not in ("open", "floor_held") or room.current_speaker is not None:
+            return await _send_error(ws, "can only set speaker time when no speaker has the floor")
         secs = msg.get("seconds")
         if not isinstance(secs, int) or not (10 <= secs <= 600):
             return await _send_error(ws, "speaker_time must be 10–600 seconds")
@@ -399,6 +400,9 @@ async def _handle_message(room_id: str, member_id: str,
         await _handle_leave(room_id, member_id)
         await ws.close()
         return
+
+    # Unknown message type — send error for debuggability
+    await _send_error(ws, f"unknown message type: {mtype!r}")
 
 # ── WebSocket endpoint ────────────────────────────────────────────────────────
 @app.websocket("/ws/{room_id}")
