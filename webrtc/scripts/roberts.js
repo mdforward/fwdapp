@@ -100,8 +100,8 @@ export class RobertsUI {
             });
         }
 
-        // Motion form
-        this.#show('motion-form', ['open', 'floor_held', 'seconded'].includes(phase));
+        // Motion form (not shown in seconded — server rejects make_motion when debate is active)
+        this.#show('motion-form', ['open', 'floor_held'].includes(phase));
 
         // Vote result
         const showResult = phase === 'vote_closed' && motion?.result;

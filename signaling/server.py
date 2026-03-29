@@ -184,12 +184,7 @@ async def _seconded_timeout(room_id: str) -> None:
         await asyncio.sleep(SECONDED_TIMEOUT)
         room = rooms.get(room_id)
         if room and room.phase == "seconded":
-            room.phase = "open"
-            room.motion = None
-            # Clear saved prev-state to prevent stale data
-            room._prev_phase = room._prev_speaker = None
-            room._prev_timer = 0
-            await _broadcast_state(room_id)
+            await _restore_prev_phase(room_id)
     except asyncio.CancelledError:
         pass
 
@@ -260,7 +255,9 @@ async def _handle_leave(room_id: str, member_id: str) -> None:
 
     if room.phase == "voting" and was_chair:
         await _broadcast_state(room_id)
-        _vote_tasks[room_id] = asyncio.create_task(_close_vote(room_id))
+        # Only create vote task if one isn't already running
+        if room_id not in _vote_tasks or _vote_tasks[room_id].done():
+            _vote_tasks[room_id] = asyncio.create_task(_close_vote(room_id))
         return
 
     await _broadcast_state(room_id)
