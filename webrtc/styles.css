@@ -1,0 +1,176 @@
+/* webrtc/styles.css — Meeting room layout */
+@import url('../peptalks/styles.css');
+
+.meeting-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 280px;
+    grid-template-areas:
+        "header  header"
+        "video   sidebar"
+        "toolbar toolbar";
+    height: 100vh;
+    gap: 0;
+    background: var(--bg);
+}
+
+/* Header */
+.meeting-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+}
+
+#phase-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Video grid */
+#video-grid {
+    grid-area: video;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    overflow-y: auto;
+    background: #0a0a0f;
+}
+
+.video-tile {
+    width: 220px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    background: #1a1a2e;
+    object-fit: cover;
+    transition: box-shadow 200ms;
+}
+
+.video-tile.speaking {
+    box-shadow: 0 0 0 3px var(--accent), 0 0 20px rgba(106, 60, 181, 0.5);
+    flex: 1 1 100%;
+    width: 100%;
+    max-height: 50vh;
+}
+
+/* Sidebar */
+.meeting-sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--surface);
+    border-left: 1px solid var(--line);
+    overflow-y: auto;
+}
+
+.speaker-info {
+    text-align: center;
+}
+
+#current-speaker {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+#timer-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+#speaker-queue {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+#speaker-queue li { padding: 0.2rem 0; }
+
+/* Toolbar */
+.meeting-toolbar {
+    grid-area: toolbar;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+}
+
+#motion-section { display: flex; flex-direction: column; gap: 0.25rem; }
+#motion-text    { font-style: italic; font-size: 0.9rem; }
+#motion-meta    { font-size: 0.8rem; color: var(--muted); }
+
+#voting-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.vote-tally { font-size: 0.85rem; color: var(--muted); }
+
+#vote-result {
+    padding: 0.3rem 0.75rem;
+    border-radius: 99px;
+    font-weight: 700;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+#motion-form {
+    display: flex;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+#motion-input {
+    flex: 1;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+/* Error banner */
+#error-banner {
+    position: fixed;
+    top: 1rem; left: 50%;
+    transform: translateX(-50%);
+    background: #c0392b;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    z-index: 999;
+}
+
+@media (max-width: 720px) {
+    .meeting-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "video" "sidebar" "toolbar";
+        height: auto;
+    }
+    .video-tile { width: 100%; }
+}
