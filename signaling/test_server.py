@@ -37,3 +37,32 @@ def test_validate_jwt_wrong_audience():
     )
     with pytest.raises(Exception):
         _validate_jwt(bad)
+
+def test_room_to_dict_no_motion():
+    from server import _room_to_dict
+    room = Room(room_id="r1")
+    room.members.append(Member(id="u1", name="Alice", is_chair=True))
+    d = _room_to_dict(room)
+    assert d["room_id"] == "r1"
+    assert d["phase"] == "open"
+    assert d["motion"] is None
+    assert d["members"][0]["is_chair"] is True
+
+def test_get_member_found():
+    from server import _get_member
+    room = Room(room_id="r1")
+    room.members.append(Member(id="u1", name="Alice"))
+    assert _get_member(room, "u1").name == "Alice"
+
+def test_get_member_not_found():
+    from server import _get_member
+    room = Room(room_id="r1")
+    assert _get_member(room, "nope") is None
+
+def test_is_chair():
+    from server import _is_chair
+    room = Room(room_id="r1")
+    room.members.append(Member(id="u1", name="Alice", is_chair=True))
+    room.members.append(Member(id="u2", name="Bob"))
+    assert _is_chair(room, "u1") is True
+    assert _is_chair(room, "u2") is False

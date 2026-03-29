@@ -72,3 +72,58 @@ def _validate_jwt(token: str) -> dict:
         issuer=APP_JWT_ISSUER,
         audience=APP_JWT_AUDIENCE,
     )
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+def _room_to_dict(room: Room) -> dict:
+    return {
+        "room_id": room.room_id,
+        "phase": room.phase,
+        "members": [
+            {"id": m.id, "name": m.name,
+             "is_chair": m.is_chair, "hand_raised": m.hand_raised}
+            for m in room.members
+        ],
+        "speaker_queue": list(room.speaker_queue),
+        "current_speaker": room.current_speaker,
+        "timer_remaining": room.timer_remaining,
+        "speaker_time": room.speaker_time,
+        "motion": {
+            "text": room.motion.text,
+            "moved_by": room.motion.moved_by,
+            "seconded_by": room.motion.seconded_by,
+            "votes": dict(room.motion.votes),
+            "member_votes": dict(room.motion.member_votes),
+            "result": room.motion.result,
+        } if room.motion else None,
+    }
+
+def _get_member(room: Room, member_id: str) -> Optional[Member]:
+    return next((m for m in room.members if m.id == member_id), None)
+
+def _is_chair(room: Room, member_id: str) -> bool:
+    m = _get_member(room, member_id)
+    return m is not None and m.is_chair
+
+def _cancel_task(task_dict: dict, key: str) -> None:
+    task = task_dict.pop(key, None)
+    if task and not task.done():
+        task.cancel()
+
+async def _broadcast(room_id: str, msg: dict) -> None:
+    text = json.dumps(msg)
+    for ws in list(connections.get(room_id, {}).values()):
+        try:
+            await ws.send_text(text)
+        except Exception:
+            pass
+
+async def _broadcast_state(room_id: str) -> None:
+    room = rooms.get(room_id)
+    if room:
+        await _broadcast(room_id, {"type": "state", "state": _room_to_dict(room)})
+
+async def _send_error(ws: WebSocket, message: str) -> None:
+    try:
+        await ws.send_text(json.dumps({"type": "error", "message": message}))
+    except Exception:
+        pass
