@@ -1,33 +1,84 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
     <head>
-        <meta charset='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="create_talk.css">
+        <title>Create PEP Talk</title>
     </head>
     <body>
+        <!-- Popups -->
+        <div class="popup_container">
+            <div class="popup" id="url_copied">Copied URL!</div>
+            <div class="popup" id="info_updated">Updated Talk Info!</div>
+            <div class="popup" id="co_host_added">Added Co-host(s)!</div>
+        </div>
+
         <aside>
-            <div class="image"></div>
-            <div class="link_btn_container"></div>
+            <div class="image_container" id="image_container">
+                <h2>Image</h2>
+                <img src="../images/placeholder.svg" alt="" id="image" />
+                <input type="file" name="image_file_input" id="image_file_input" />
+            </div>
+            <div class="link_btn_container">
+                <button id="delete_talk">Delete</button>
+                <button id="copy_talk">Copy</button>
+                <button id="share_talk">Share</button>
+            </div>
         </aside>
         <main>
-            <form class="talk_info_form" action="">
-                <input type="text" name="title" id="title" />
-                <input type="text" name="description" id="description" />
-                <input type="submit" value="Save" />
-            </form>
-            <form class="co_hosts_form" action="">
-                <input type="text" name="co_hosts" id="co_hosts" />
-                <input type="submit" value="Send" />
-            </form>
-            <div class="attendee_container">
-                <div class="attendant">
-                    <p class="name">First Last Name</p>
-                    <p class="address">address@email.com</p>
-                    <form class="attendant_form" action="">
-
-                    </form>
-                </div>
-            </div>
+            <!-- Talk Info -->
+            <section>
+                <h2>Pep Talk Title & Description</h2>
+                <form class="talk_info_form" id="talk_info_form"  action="">
+                    <div class="info_container">
+                        <input type="text" name="title" id="title" placeholder="PEP Talk Title" />
+                        <input type="text" name="description" id="description" placeholder="Theme or Description" />
+                    </div>
+                    <input type="submit" id="save_talk_info" value="Save" />
+                </form>
+            </section>
+            <!-- Co-hosts Form -->
+            <section>
+                <h2>Co-Hosts</h2>
+                <form class="co_host_form" id="co_host_form" action="">
+                    <input type="text" name="co_host" id="co_host" placeholder="Co-Host 1, Co-Host 2" />
+                    <input type="submit" id="add_co_host" value="Send" />
+                </form>
+            </section>
+            <!-- Attendee Table -->
+            <section>
+                <h2>Attendees</h2>
+                <table class="attendee_table" id="attendee_table">
+                    <!-- <thead>
+                        <tr>
+                            <th>Name / Email</th>
+                            <th>Role</th>
+                            <th></th>   
+                            <th></th>   
+                            <th></th>
+                        </tr>
+                    </thead> -->
+                    <tbody>
+                        <tr>
+                            <td>First Last Name<br />
+                                address@email.com</td>
+                            <td>
+                                <select name="roles">
+                                    <option value="host" selected>Host</option>
+                                    <option value="co_host">Co-Host</option>
+                                    <option value="attendee">Attendee</option>
+                                </select>
+                            </td>
+                            <td>E</td>
+                            <td>M</td>
+                            <td>D</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
+
+        <script src="create_talk.js"></script>
     </body>
 </html>
