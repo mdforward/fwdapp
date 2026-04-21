@@ -10,7 +10,7 @@
         <aside>
             <div class="image_container" id="image_container">
                 <h2>Image</h2>
-                <img src="" alt="" id="image" />
+                <img src="../images/placeholder.svg" alt="" id="image" />
                 <input type="file" name="image_file_input" id="image_file_input" />
             </div>
             <div class="link_btn_container">
@@ -24,16 +24,18 @@
             <section>
                 <h2>Pep Talk Title & Description</h2>
                 <form class="talk_info_form" id="talk_info_form"  action="">
-                    <input type="text" name="title" id="title" placeholder="PEP Talk Title" />
-                    <input type="text" name="description" id="description" placeholder="Theme or Description" />
+                    <div class="info_container">
+                        <input type="text" name="title" id="title" placeholder="PEP Talk Title" />
+                        <input type="text" name="description" id="description" placeholder="Theme or Description" />
+                    </div>
                     <input type="submit" id="save_talk_info" value="Save" />
                 </form>
             </section>
             <!-- Co-hosts Form -->
             <section>
-                <form class="co_hosts_form" id="co_hosts_form" action="">
-                    <input type="text" name="co_hosts" id="co_hosts" />
-                    <input type="submit" id="add_co_hosts" value="Send Message" />
+                <form class="co_host_form" id="co_host_form" action="">
+                    <input type="text" name="co_host" id="co_host" />
+                    <input type="submit" id="add_co_host" value="Send" />
                 </form>
             </section>
             <!-- Attendee Table -->

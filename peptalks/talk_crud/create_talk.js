@@ -112,12 +112,12 @@ save_talk_btn.addEventListener("click", () => {
 });
 
 /* Add Co-Hosts */
-add_co_hosts_btn = document.getElementById("add_co_hosts");
+add_co_host_btn = document.getElementById("add_co_host");
 
-add_co_hosts_btn.addEventListener("click", () => {
-    const form = document.getElementById("co_hosts_form");
+add_co_host_btn.addEventListener("click", () => {
+    const form = document.getElementById("co_host_form");
     const form_data = new FormData(form);
-    const email_str = form_data.get("co_hosts");
+    const email_str = form_data.get("co_host");
     const emails = email_str.replaceAll(" ", "").split(",");
 
     // TODO: Send form data to backend
